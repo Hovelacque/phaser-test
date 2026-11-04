@@ -11,13 +11,13 @@ export class Enemy extends Phaser.GameObjects.Rectangle {
     }
 
     update(player: Phaser.GameObjects.Rectangle, delta: number) {
-        const xDistancia = player.x - this.x;
-        const yDistancia = player.y - this.y;
+        // const xDistancia = player.x - this.x;
+        // const yDistancia = player.y - this.y;
 
-        const angulo = Math.atan2(yDistancia, xDistancia);
+        // const angulo = Math.atan2(yDistancia, xDistancia);
+        const angulo = Phaser.Math.Angle.Between(this.x, this.y, player.x, player.y);
 
         const distance = this.velocity * (delta / 1000);
-
         const dx = Math.cos(angulo) * distance;
         const dy = Math.sin(angulo) * distance;
 
